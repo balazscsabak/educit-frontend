@@ -92,14 +92,13 @@ export async function getServerSideProps({ params, res }) {
       }
     }
   } catch (err) {
-    console.log(err)
+    console.log('postum error:' + err)
     res.setHeader('location', '/404')
     res.statusCode = 302
     res.end()
 
     return {
       props: {
-        catSlug,
         valid: true
       }
     }
