@@ -92,7 +92,8 @@ export async function getServerSideProps({ params, res }) {
       }
     }
   } catch (err) {
-    console.log('postum error:' + err)
+    console.log('costum error')
+    console.log(err)
     res.setHeader('location', '/404')
     res.statusCode = 302
     res.end()
