@@ -1,4 +1,4 @@
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import FeaturedPosts from '../components/FeaturedPosts/Index'
 import { categoriesData } from '../utils/constans'
 import CatSection from '../components/CatSection/CatSection'
