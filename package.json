@@ -1,0 +1,23 @@
+{
+  "name": "educit-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for Educit",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "Balázs Csabák",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.27.0",
+    "next": "^9.5.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.11.0",
+    "react-markdown": "^4.3.1",
+    "react-share": "^4.2.1",
+    "sass": "^1.26.10"
+  }
+}
