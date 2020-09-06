@@ -1,4 +1,4 @@
-import Layout from '../../components/layout'
+import Layout from '../../components/Layout'
 import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
 import {
