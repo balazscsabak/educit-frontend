@@ -1,7 +1,14 @@
 import Link from 'next/link'
+import { useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
+import SearchModal from './SearchModal'
 
 function MainNav() {
+  const [searchOpen, setSearchOpen] = useState(false)
+  const model = searchOpen ? (
+    <SearchModal closeModal={() => setSearchOpen(false)} />
+  ) : null
+
   return (
     <React.Fragment>
       <div className='main-nav-wrapper'>
@@ -43,7 +50,7 @@ function MainNav() {
 
               <div className='nav__right'>
                 <ul>
-                  <li>
+                  <li onClick={() => setSearchOpen(true)}>
                     <FaSearch />
                   </li>
                 </ul>
@@ -52,6 +59,7 @@ function MainNav() {
           </div>
         </div>
       </div>
+      {model}
     </React.Fragment>
   )
 }

@@ -1,17 +1,17 @@
 import Layout from '../components/Layout'
 import { NextSeo } from 'next-seo'
 
-function gyorstalpalo(props) {
+function adatvedelmi() {
   return (
     <>
-      <NextSeo title='Gyorstalpaló' />
+      <NextSeo title='Adatvédelmi Tájékozató' />
 
       <Layout>
-        <div className='gyorstalpalo-page-wrapper page'>
+        <div className='adatvedelmi-page-wrapper page'>
           <div className='container'>
-            <div className='gyorstalpalo-page'>
+            <div className='adatvedelmi-page'>
               <div className='title'>
-                <h1>Gyorstalpaló</h1>
+                <h1>Adatvédelmi Tájékozató</h1>
               </div>
             </div>
           </div>
@@ -21,4 +21,4 @@ function gyorstalpalo(props) {
   )
 }
 
-export default gyorstalpalo
+export default adatvedelmi

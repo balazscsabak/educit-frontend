@@ -3,13 +3,11 @@ import Link from 'next/link'
 import { categoriesData } from '../../utils/constans'
 import { getKeyByIdFromObj } from '../../utils/functions'
 
-function FeaturedPost(props) {
-  const post = props.featuredPost
+function FeaturedPost({ featuredPost }) {
+  const post = featuredPost
   const imgUrl = post.image ? post.image.url : 'no-image'
   const date = moment(post.createdAt).format('YYYY.MM.DD')
-  const bgUrl = !process.env.NEXT_PUBLIC_PRODUCTION
-    ? `${process.env.NEXT_PUBLIC_SITE_URL}${imgUrl}`
-    : `${process.env.NEXT_PUBLIC_API_URL}${imgUrl}`
+  const bgUrl = process.env.NEXT_PUBLIC_API_URL + imgUrl
   const category = getKeyByIdFromObj(categoriesData, post.category)
   const displayCategory = categoriesData[category].displayName
   const displayFontColor = categoriesData[category].fontColor

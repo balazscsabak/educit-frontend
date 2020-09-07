@@ -26,10 +26,14 @@ function Pagination({ count, current, itemPerPage, hrefUrl, asHrefUrl }) {
   if (pageCount < 10) {
     for (let i = 1; i < pageCount + 1; i++) {
       if (i == currentPagedNumber) {
-        pageList.push(<div className='item current'>{i}</div>)
+        pageList.push(
+          <div key={pageList.length} className='item current'>
+            {i}
+          </div>
+        )
       } else {
         pageList.push(
-          <div className='item'>
+          <div key={pageList.length} className='item'>
             <Link href={hrefUrl} as={`${asHrefUrl}${i}`}>
               <a>{i}</a>
             </Link>
@@ -41,7 +45,7 @@ function Pagination({ count, current, itemPerPage, hrefUrl, asHrefUrl }) {
     for (let i = 1; i < 3; i++) {
       if (currentPagedNumber - i > 2) {
         pageList.unshift(
-          <div className='item'>
+          <div key={pageList.length} className='item'>
             <Link href={hrefUrl} as={`${asHrefUrl}${currentPagedNumber - i}`}>
               <a>{currentPagedNumber - i}</a>
             </Link>
@@ -51,13 +55,21 @@ function Pagination({ count, current, itemPerPage, hrefUrl, asHrefUrl }) {
     }
 
     if (currentPagedNumber - 3 > 2) {
-      pageList.unshift(<div className='dotdot'>..</div>)
+      pageList.unshift(
+        <div key={pageList.length} className='dotdot'>
+          ..
+        </div>
+      )
     }
     if (currentPagedNumber == 2) {
-      pageList.unshift(<div className='item current'>2</div>)
+      pageList.unshift(
+        <div key={pageList.length} className='item current'>
+          2
+        </div>
+      )
     } else {
       pageList.unshift(
-        <div className='item'>
+        <div key={pageList.length} className='item'>
           <Link href={hrefUrl} as={`${asHrefUrl}2`}>
             <a>2</a>
           </Link>
@@ -66,10 +78,14 @@ function Pagination({ count, current, itemPerPage, hrefUrl, asHrefUrl }) {
     }
 
     if (currentPagedNumber == 1) {
-      pageList.unshift(<div className='item current'>1</div>)
+      pageList.unshift(
+        <div key={pageList.length} className='item current'>
+          1
+        </div>
+      )
     } else {
       pageList.unshift(
-        <div className='item'>
+        <div key={pageList.length} className='item'>
           <Link href={hrefUrl} as={`${asHrefUrl}1`}>
             <a>1</a>
           </Link>
@@ -78,7 +94,11 @@ function Pagination({ count, current, itemPerPage, hrefUrl, asHrefUrl }) {
     }
 
     if (currentPagedNumber != 1 && currentPagedNumber != 2) {
-      pageList.push(<div className='item current'>{currentPagedNumber}</div>)
+      pageList.push(
+        <div key={pageList.length} className='item current'>
+          {currentPagedNumber}
+        </div>
+      )
     }
 
     for (let i = 1; i < 3; i++) {
@@ -87,7 +107,7 @@ function Pagination({ count, current, itemPerPage, hrefUrl, asHrefUrl }) {
         currentPagedNumber + i != 2
       ) {
         pageList.push(
-          <div className='item'>
+          <div key={pageList.length} className='item'>
             <Link href={hrefUrl} as={`${asHrefUrl}${currentPagedNumber + i}`}>
               <a>{currentPagedNumber + i}</a>
             </Link>
@@ -97,12 +117,16 @@ function Pagination({ count, current, itemPerPage, hrefUrl, asHrefUrl }) {
     }
 
     if (currentPagedNumber < pageCount - 4) {
-      pageList.push(<div className='dotdot'>..</div>)
+      pageList.push(
+        <div key={pageList.length} className='dotdot'>
+          ..
+        </div>
+      )
     }
 
     if (currentPagedNumber < pageCount - 1) {
       pageList.push(
-        <div className='item'>
+        <div key={pageList.length} className='item'>
           <Link href={hrefUrl} as={`${asHrefUrl}${pageCount - 1}`}>
             <a>{pageCount - 1}</a>
           </Link>
@@ -111,7 +135,7 @@ function Pagination({ count, current, itemPerPage, hrefUrl, asHrefUrl }) {
     }
     if (currentPagedNumber < pageCount) {
       pageList.push(
-        <div className='item'>
+        <div key={pageList.length} className='item'>
           <Link href={hrefUrl} as={`${asHrefUrl}${pageCount}`}>
             <a>{pageCount}</a>
           </Link>

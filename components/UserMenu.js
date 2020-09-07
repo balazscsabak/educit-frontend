@@ -1,5 +1,6 @@
 import { FaTwitter, FaFacebookSquare } from 'react-icons/fa'
 import Link from 'next/link'
+import { SOCIAL_DATA } from '../utils/constans'
 
 function UserMenu() {
   return (
@@ -15,18 +16,14 @@ function UserMenu() {
           </div>
           <div className='social'>
             <div className='item'>
-              <Link href='#'>
-                <a>
-                  <FaFacebookSquare />
-                </a>
-              </Link>
+              <a href={SOCIAL_DATA.facebook.url} target='_blank'>
+                <FaFacebookSquare />
+              </a>
             </div>
             <div className='item'>
-              <Link href='#'>
-                <a>
-                  <FaTwitter />
-                </a>
-              </Link>
+              <a href={SOCIAL_DATA.twitter.url} target='_blank'>
+                <FaTwitter />
+              </a>
             </div>
           </div>
         </div>

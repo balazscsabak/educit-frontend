@@ -2,48 +2,64 @@ import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import SinglePost from '../../../components/Posts/SinglePost'
 import Pagination from '../../../components/Pagination'
+import { NextSeo } from 'next-seo'
+import FeaturedForCat from '../../../components/Categories/FeaturedForCat'
 
 function singleCategory({ cat, posts, count }) {
+  const { featuredPosts } = cat
+
   return (
-    <Layout>
-      <div className='category-page-wrapper page'>
-        <div className='container'>
-          <div className='category-page'>
-            <div className='backto'>
-              <Link href='/kategoriak'>
-                <a>Kategóriák</a>
-              </Link>
-            </div>
-            <div style={{ backgroundColor: cat.color }} className='title'>
-              <h1>{cat.cat_name}</h1>
-            </div>
-            <div className='order'>
-              <label htmlFor='order'>Rendezés:</label>
-              <select name='order' id='order'>
-                <option defaultValue value='createdAt'>
-                  Legújabb
-                </option>
-                <option value='top'>Legolvasottabb</option>
-              </select>
-            </div>
-            <div className='posts'>
-              {posts.map((post) => {
-                return <SinglePost post={post} key={post.id} />
-              })}
-            </div>
-            <div className='pagination'>
-              <Pagination
-                count={count}
-                current={1}
-                itemPerPage={process.env.NEXT_PUBLIC_POSTS_PER_PAGE}
-                hrefUrl={`/cat/[cat_slug]/[cat_paged]`}
-                asHrefUrl={`/cat/${cat.slug}/`}
-              />
+    <>
+      <NextSeo title={`Kategória: ${cat.cat_name}`} />
+
+      <Layout>
+        <div className='category-page-wrapper page'>
+          <div className='container'>
+            <div className='category-page'>
+              <div className='backto'>
+                <Link href='/kategoriak'>
+                  <a>Kategóriák</a>
+                </Link>
+              </div>
+              <div style={{ backgroundColor: cat.color }} className='title'>
+                <h1>{cat.cat_name}</h1>
+              </div>
+              <div className='featured-posts'>
+                <h2>Kiemelt cikkek</h2>
+                <div className='posts'>
+                  {featuredPosts.map((fp) => (
+                    <FeaturedForCat post={fp} />
+                  ))}
+                </div>
+              </div>
+              <div className='order'>
+                <label htmlFor='order'>Rendezés:</label>
+                <select name='order' id='order'>
+                  <option defaultValue value='createdAt'>
+                    Legújabb
+                  </option>
+                  <option value='top'>Legolvasottabb</option>
+                </select>
+              </div>
+              <div className='posts'>
+                {posts.map((post) => {
+                  return <SinglePost post={post} key={post.id} />
+                })}
+              </div>
+              <div className='pagination'>
+                <Pagination
+                  count={count}
+                  current={1}
+                  itemPerPage={process.env.NEXT_PUBLIC_POSTS_PER_PAGE}
+                  hrefUrl={`/cat/[cat_slug]/[cat_paged]`}
+                  asHrefUrl={`/cat/${cat.slug}/`}
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   )
 }
 

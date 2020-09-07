@@ -106,7 +106,7 @@ button:focus {
             width: 60%;
           }
           .post__cat {
-            width: 15%;
+            width: 20%;
             font-family: $font1;
             text-align: right;
 
@@ -115,7 +115,7 @@ button:focus {
             }
           }
           .post__date {
-            width: 25%;
+            width: 20%;
             text-align: right;
             font-family: $font1;
             color: #b9b9b9;
@@ -219,7 +219,7 @@ button:focus {
               text-transform: capitalize;
 
               font-weight: bold;
-              color: rgb(99, 99, 99);
+              color: #202020;
 
               &::after {
                 content: '';
@@ -260,6 +260,7 @@ button:focus {
         ul {
           list-style: none;
           li {
+            cursor: pointer;
             font-family: $font1;
             color: $mainColor;
             display: flex;
@@ -277,7 +278,8 @@ button:focus {
 }
 
 .featured-posts-wrapper {
-  margin-top: 4rem;
+  margin-top: 3rem;
+  margin-bottom: 6rem;
   .featured-posts {
     display: flex;
     .featured-posts__left {
@@ -298,7 +300,7 @@ button:focus {
           overflow: hidden;
           margin-bottom: 0.5rem;
           img {
-            transition: all 0.2s linear;
+            transition: all 0.1s linear;
             border-radius: 3px;
           }
         }
@@ -325,7 +327,7 @@ button:focus {
             }
           }
           h1 {
-            color: rgb(156, 156, 156);
+            color: #9c9c9c;
           }
         }
       }
@@ -384,33 +386,88 @@ button:focus {
       }
     }
   }
+  .sec-featured-posts {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+    .post {
+      width: 32.3%;
+
+      a {
+        text-decoration: none;
+        .post__header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          font-family: $font1;
+          .cat {
+            padding: 2px 10px;
+            font-size: 0.9rem;
+          }
+          .date {
+            color: #7e7e7e;
+            font-style: italic;
+            font-size: 0.8rem;
+          }
+        }
+        .post__bg {
+          overflow: hidden;
+          img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            transition: all 0.1s linear;
+            border-radius: 3px;
+          }
+        }
+        h1 {
+          margin-top: 10px;
+          font-size: 1.1rem;
+          color: #000;
+        }
+      }
+
+      &:hover {
+        .post__bg {
+          img {
+            transform: scale(1.1);
+          }
+        }
+        h1 {
+          color: #9c9c9c;
+        }
+      }
+    }
+  }
 }
 
 .cat-section-wrapper {
-  margin-top: 8rem;
+  margin-top: 4rem;
   .cat-section {
     .cat-section__header {
       position: relative;
       width: 100%;
-      height: 30px;
-      border-radius: 4px;
+      height: 25px;
+      border-radius: 3px;
 
       h1 {
+        font-size: 1.6rem;
         position: absolute;
-        top: -25px;
-        left: 10px;
+        top: -22px;
+        left: 15px;
         padding: 0 10px;
         background-color: rgba(255, 255, 255, 0.842);
       }
     }
     .cat-section__postlist {
+      margin-bottom: 2rem;
       ul {
         margin-top: 0.5rem;
         margin-left: 1rem;
         a {
           li {
             list-style: none;
-            font-size: 1.3rem;
+            font-size: 20px;
             cursor: pointer;
             font-family: $font1;
             color: #000;
@@ -443,12 +500,12 @@ button:focus {
     .more-btn {
       font-family: $font1;
       margin-left: auto;
-      width: 200px;
+      width: 180px;
       text-transform: uppercase;
       text-align: center;
       transition: all 0.2s;
       position: relative;
-      padding: 20px 0;
+      padding: 17px 0;
       color: rgb(31, 31, 31);
       font-size: 1.2rem;
 
@@ -719,13 +776,55 @@ button:focus {
       width: 100%;
       height: 30px;
       border-radius: 4px;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
       h1 {
         position: absolute;
         top: -25px;
         left: 10px;
         padding: 0 10px;
         background-color: rgba(255, 255, 255, 0.842);
+      }
+    }
+    .featured-posts {
+      h2 {
+        font-size: 1.3rem;
+        padding-bottom: 1rem;
+      }
+      .posts {
+        display: flex;
+        width: 100%;
+        a {
+          text-decoration: none;
+          .post {
+            position: relative;
+            .post__img {
+              overflow: hidden;
+              img {
+                transition: all 0.12s cubic-bezier(0.4, 0, 1, 1);
+              }
+            }
+            .post__title {
+              bottom: 0;
+              left: 0;
+              position: absolute;
+              padding-right: 3rem;
+              padding-left: 0.5rem;
+              h2 {
+                font-size: 1.4rem;
+                padding: 10px 20px;
+                background-color: rgba(0, 0, 0, 0.767);
+                color: rgb(255, 255, 255);
+              }
+            }
+            &:hover {
+              .post__img {
+                img {
+                  transform: scale(1.1);
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -849,6 +948,7 @@ button:focus {
     border-left: 1px solid #2c2c2c;
     li {
       list-style: none;
+      margin-bottom: 8px;
     }
   }
   .footer-content {
@@ -880,6 +980,315 @@ button:focus {
     color: rgb(97, 97, 97);
     a {
       color: rgb(136, 136, 136);
+    }
+  }
+}
+
+.searchModal {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.808);
+  z-index: 80;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .input {
+    z-index: 90;
+    .closeBtn {
+      text-align: right;
+      svg {
+        font-size: 1.4rem;
+        color: rgb(177, 177, 177);
+      }
+    }
+    .input-box {
+      background-color: #fff;
+      padding: 12px 22px;
+      border-radius: 3px;
+      form {
+        background-color: $mainColor;
+        border-radius: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgb(230, 230, 230);
+
+        input[type='text'] {
+          font-family: $font1;
+          border: none;
+          padding: 5px 10px;
+          font-size: 1.2rem;
+          &:focus {
+            outline: none;
+          }
+        }
+        button {
+          background-color: #fff;
+          border: none;
+          outline: none;
+          background-color: transparent;
+          padding: 5px 10px;
+          cursor: pointer;
+          svg {
+            font-size: 1.2rem;
+            color: rgb(243, 243, 243);
+          }
+        }
+      }
+    }
+  }
+}
+
+.search-page-wrapper {
+  .search-page {
+    .input {
+      width: 500px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .input__text {
+        width: 100%;
+
+        input {
+          padding: 10px 15px;
+          font-size: 1.2rem;
+          font-family: $font1;
+          width: 100%;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      .input__search {
+        font-size: 1.2rem;
+        margin-left: 20px;
+        background-color: $mainColor;
+        color: #eeeeee;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 15px;
+        border-radius: 2px;
+        height: 100%;
+        cursor: pointer;
+      }
+    }
+    .posts {
+      margin-top: 3rem;
+      h2 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+.kapcsolat-page-wrapper {
+  .kapcsolat-page {
+    .kapcsolat {
+      display: flex;
+      font-family: $font1;
+      .left {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .data {
+          h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+          }
+          p {
+            font-size: 1.2rem;
+            span {
+              display: inline-block;
+              font-weight: bold;
+              padding-right: 15px;
+              margin-bottom: 0.8rem;
+              &::after {
+                content: '';
+                width: 100%;
+                height: 2px;
+                background-color: $mainColor;
+                display: block;
+              }
+            }
+          }
+          .social {
+            width: 100%;
+            display: flex;
+            margin-top: 1rem;
+            justify-content: center;
+            span {
+              padding: 0 10px;
+              svg {
+                font-size: 1.5rem;
+              }
+            }
+          }
+        }
+      }
+      .right {
+        width: 50%;
+        padding: 15px;
+        font-family: $font2;
+        position: relative;
+
+        .form {
+          background-color: #000;
+          color: #fff;
+          padding: 20px 50px;
+          img {
+            margin: auto;
+            width: 100px;
+            margin-bottom: 1.7rem;
+          }
+          p {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 1.6rem;
+          }
+          .form-grp {
+            label,
+            input[type='text'],
+            input[type='email'],
+            textarea {
+              display: block;
+              width: 100%;
+            }
+            input[type='text'],
+            input[type='email'],
+            textarea {
+              font-family: $font1;
+              font-size: 1.1rem;
+              background-color: rgb(0, 0, 0);
+              border: 1px solid rgb(12, 12, 12);
+              border-bottom: 2px solid $mainColor;
+              padding: 6px 14px;
+              margin-bottom: 20px;
+              color: rgb(233, 233, 233);
+              &:focus {
+                outline: 2px solid rgb(27, 27, 27);
+              }
+            }
+            textarea {
+              max-width: 100%;
+              min-height: 120px;
+              white-space: pre-line;
+            }
+            label {
+              color: rgb(233, 233, 233);
+
+              text-align: center;
+              font-size: 1rem;
+              margin-bottom: 5px;
+            }
+            .send-btn {
+              cursor: pointer;
+              font-family: $font1;
+              margin: 20px auto;
+              width: 160px;
+              text-transform: uppercase;
+              text-align: center;
+              transition: all 0.2s;
+              position: relative;
+              padding: 14px 0;
+              color: rgb(255, 255, 255);
+              font-size: 1.2rem;
+
+              &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                background-color: rgba(71, 33, 121, 0.637);
+                transition: all 0.3s;
+              }
+
+              &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                opacity: 0;
+                transition: all 0.3s;
+                border: 2px solid $mainColor;
+                transform: scale(1.2, 1.2);
+              }
+
+              &:hover {
+                &::before {
+                  opacity: 0;
+                  transform: scale(0.5, 0.5);
+                }
+                &::after {
+                  opacity: 1;
+                  transform: scale(1, 1);
+                }
+              }
+            }
+          }
+        }
+        .response {
+          position: absolute;
+          top: 15px;
+          left: 15px;
+          z-index: 10;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: rgb(255, 255, 255);
+          width: calc(100% - 30px);
+          height: calc(100% - 30px);
+          background-color: rgb(0 0 0 / 77%);
+          transform: scale(0.7, 0.4);
+          transition: all 0.2s linear;
+          opacity: 0;
+
+          &.show {
+            opacity: 1;
+            transform: scale(1, 1);
+          }
+          .error,
+          .success {
+            text-align: center;
+            p {
+              font-size: 2rem;
+              margin-bottom: 30px;
+            }
+            svg {
+              font-size: 3rem;
+              margin-bottom: 30px;
+            }
+            .again {
+              padding: 15px 30px;
+              background-color: $mainColor;
+              cursor: pointer;
+            }
+          }
+          .error {
+            svg {
+              color: #bc3737;
+            }
+          }
+          .success {
+            svg {
+              color: #4c8f29;
+            }
+          }
+        }
+      }
     }
   }
 }

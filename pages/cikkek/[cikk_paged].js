@@ -1,43 +1,47 @@
 import Layout from '../../components/Layout'
 import SinglePost from '../../components/Posts/SinglePost'
 import Pagination from '../../components/Pagination'
+import { NextSeo } from 'next-seo'
 
 function cikkekPaged({ posts, count, current }) {
   return (
-    <Layout>
-      <div className='cikkek-page-wrapper page'>
-        <div className='container'>
-          <div className='cikkek-page'>
-            <div className='title'>
-              <h1>Cikkek</h1>
-            </div>
-            <div className='order'>
-              <label htmlFor='order'>Rendezés:</label>
-              <select name='order' id='order'>
-                <option defaultValue value='createdAt'>
-                  Legújabb
-                </option>
-                <option value='top'>Legolvasottabb</option>
-              </select>
-            </div>
-            <div className='posts'>
-              {posts.map((post) => {
-                return <SinglePost post={post} key={post.id} />
-              })}
-            </div>
-            <div className='pagination'>
-              <Pagination
-                count={count}
-                current={current}
-                itemPerPage={process.env.NEXT_PUBLIC_POSTS_PER_PAGE}
-                hrefUrl='/cikkek/[cikk_paged]'
-                asHrefUrl='/cikkek/'
-              />
+    <>
+      <NextSeo title='Cikkek' />
+      <Layout>
+        <div className='cikkek-page-wrapper page'>
+          <div className='container'>
+            <div className='cikkek-page'>
+              <div className='title'>
+                <h1>Cikkek</h1>
+              </div>
+              <div className='order'>
+                <label htmlFor='order'>Rendezés:</label>
+                <select name='order' id='order'>
+                  <option defaultValue value='createdAt'>
+                    Legújabb
+                  </option>
+                  <option value='top'>Legolvasottabb</option>
+                </select>
+              </div>
+              <div className='posts'>
+                {posts.map((post) => {
+                  return <SinglePost post={post} key={post.id} />
+                })}
+              </div>
+              <div className='pagination'>
+                <Pagination
+                  count={count}
+                  current={current}
+                  itemPerPage={process.env.NEXT_PUBLIC_POSTS_PER_PAGE}
+                  hrefUrl='/cikkek/[cikk_paged]'
+                  asHrefUrl='/cikkek/'
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   )
 }
 

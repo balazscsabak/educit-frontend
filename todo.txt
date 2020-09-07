@@ -1,0 +1,31 @@
+GLOBAL
+    [ ] - search functionaliy
+        [ ] - loading status
+        [ ] - detect enter and search
+        [ ] - history.pushState back/farward compatibility
+    [ ] - SEO metadatas
+        [ ] - next seo
+        [ ] - default og
+        [ ] - og
+    [ ] - cikkek rendezése növekvő, legolvasottabb 
+    [ ] - mobile freindly
+    [ ] - rename Javascript to JavaScript in API
+    [ ] - recapcha
+    [ ] ?? reqrite colours to get from API 
+INDEX
+    [ ] - legfrisebb, top  section 
+GYORSTALPALO
+    [ ] - back
+    [ ] - frontend
+HÍRLEVÉL
+    [ ] - edit text
+KAPCSOLAT PAGE
+    [ ] - show val errors 
+COOKIE  
+    [ ] - create it
+ADATVÉDELMI PAGE 
+    [ ] - create it
+ADV
+    [ ] - create layouts
+posts
+    [ ] - featutred post section

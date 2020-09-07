@@ -2,48 +2,53 @@ import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import SinglePost from '../../../components/Posts/SinglePost'
 import Pagination from '../../../components/Pagination'
+import { NextSeo } from 'next-seo'
 
 function singleTag({ tag, posts, count }) {
   return (
-    <Layout>
-      <div className='tag-page-wrapper page'>
-        <div className='container'>
-          <div className='tag-page'>
-            <div className='backto'>
-              <Link href='/tags'>
-                <a>Címkék</a>
-              </Link>
-            </div>
-            <div className='title'>
-              <h1>Címke: {tag.tag_name}</h1>
-            </div>
-            <div className='order'>
-              <label htmlFor='order'>Rendezés:</label>
-              <select name='order' id='order'>
-                <option defaultValue value='createdAt'>
-                  Legújabb
-                </option>
-                <option value='top'>Legolvasottabb</option>
-              </select>
-            </div>
-            <div className='posts'>
-              {posts.map((post) => {
-                return <SinglePost post={post} key={post.id} />
-              })}
-            </div>
-            <div className='pagination'>
-              <Pagination
-                count={count}
-                current={1}
-                itemPerPage={process.env.NEXT_PUBLIC_POSTS_PER_PAGE}
-                hrefUrl={`/tag/[tag_slug]/[tag_paged]`}
-                asHrefUrl={`/tag/${tag.slug}/`}
-              />
+    <>
+      <NextSeo title={`Címke: ${tag.tag_name}`} />
+
+      <Layout>
+        <div className='tag-page-wrapper page'>
+          <div className='container'>
+            <div className='tag-page'>
+              <div className='backto'>
+                <Link href='/tags'>
+                  <a>Címkék</a>
+                </Link>
+              </div>
+              <div className='title'>
+                <h1>Címke: {tag.tag_name}</h1>
+              </div>
+              <div className='order'>
+                <label htmlFor='order'>Rendezés:</label>
+                <select name='order' id='order'>
+                  <option defaultValue value='createdAt'>
+                    Legújabb
+                  </option>
+                  <option value='top'>Legolvasottabb</option>
+                </select>
+              </div>
+              <div className='posts'>
+                {posts.map((post) => {
+                  return <SinglePost post={post} key={post.id} />
+                })}
+              </div>
+              <div className='pagination'>
+                <Pagination
+                  count={count}
+                  current={1}
+                  itemPerPage={process.env.NEXT_PUBLIC_POSTS_PER_PAGE}
+                  hrefUrl={`/tag/[tag_slug]/[tag_paged]`}
+                  asHrefUrl={`/tag/${tag.slug}/`}
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   )
 }
 

@@ -21,9 +21,26 @@ export const categoriesData = {
     id: '5f481248da72c61d2c461060',
     color: '#7377ad',
     displayName: 'PHP',
-    fontColor: '#ffffffad'
+    fontColor: '#ffffffe3'
   }
 }
 
 // This is your GA Tracking ID
 export const GA_TRACKING_ID = 'UA-177332986-1'
+
+// Default Next SEO data
+export const SEO_DEF = {
+  titleTemplate: 'EducIT - %s',
+  title: 'Online Education'
+}
+
+// Social Data
+export const SOCIAL_DATA = {
+  facebook: {
+    url: 'https://www.facebook.com/balazs.csabak/'
+  },
+  twitter: {
+    url: 'https://twitter.com/balazscsabak'
+  },
+  email: 'balazs.csabak@gmail.com'
+}

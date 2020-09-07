@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import moment from 'moment'
 
 function SinglePost({ post }) {
   return (
@@ -17,7 +18,9 @@ function SinglePost({ post }) {
                 {post.category.cat_name}
               </span>
             </div>
-            <div className='post__date'>{post.createdAt}</div>
+            <div className='post__date'>
+              {moment(post.createdAt).format('YYYY.MM.DD')}
+            </div>
           </div>
         </a>
       </Link>

@@ -1,4 +1,5 @@
 import Layout from '../../components/Layout'
+import { NextSeo } from 'next-seo'
 import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
 import {
@@ -36,56 +37,60 @@ function SinglePost({ post, url }) {
   }
 
   return (
-    <Layout>
-      <div className='post-page-wrapper page'>
-        <div className='container'>
-          <div className='post-page'>
-            <div className='header'>
-              <div className='title'>
-                <h1>{post.title}</h1>
-              </div>
-              <div className='excerpt'>{excerpt}</div>
-              <div className='meta'>
-                <div className='author'>Írta: {createdBy}</div>
-                <div className='date'>Kelt: {createdAt}</div>
-                <div className='tags'>
-                  <p>Címkék:</p>
-                  <div className='tags-box'>{displayTags}</div>
+    <>
+      <NextSeo title={post.title} />
+
+      <Layout>
+        <div className='post-page-wrapper page'>
+          <div className='container'>
+            <div className='post-page'>
+              <div className='header'>
+                <div className='title'>
+                  <h1>{post.title}</h1>
+                </div>
+                <div className='excerpt'>{excerpt}</div>
+                <div className='meta'>
+                  <div className='author'>Írta: {createdBy}</div>
+                  <div className='date'>Kelt: {createdAt}</div>
+                  <div className='tags'>
+                    <p>Címkék:</p>
+                    <div className='tags-box'>{displayTags}</div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className='share'>
-              <FacebookShareButton
-                url={process.env.NEXT_PUBLIC_SITE_URL + url}
-                quote='Ez egy quote'
-                hashtag='#hasgtag'
-                resetButtonStyle={false}
-                className='shareFbBtn'
-              >
-                <FacebookIcon size='30' />
-                Megosztás
-              </FacebookShareButton>
+              <div className='share'>
+                <FacebookShareButton
+                  url={process.env.NEXT_PUBLIC_SITE_URL + url}
+                  quote='Ez egy quote'
+                  hashtag='#hasgtag'
+                  resetButtonStyle={false}
+                  className='shareFbBtn'
+                >
+                  <FacebookIcon size='30' />
+                  Megosztás
+                </FacebookShareButton>
 
-              <TwitterShareButton
-                url={process.env.NEXT_PUBLIC_SITE_URL + url}
-                resetButtonStyle={false}
-                className='shareTwitterBtn'
-              >
-                <TwitterIcon size='30' />
-                Tweet
-              </TwitterShareButton>
-            </div>
-            <div className='content'>
-              <ReactMarkdown
-                source={content}
-                transformImageUri={transformImageUri}
-                escapeHtml={false}
-              />
+                <TwitterShareButton
+                  url={process.env.NEXT_PUBLIC_SITE_URL + url}
+                  resetButtonStyle={false}
+                  className='shareTwitterBtn'
+                >
+                  <TwitterIcon size='30' />
+                  Tweet
+                </TwitterShareButton>
+              </div>
+              <div className='content'>
+                <ReactMarkdown
+                  source={content}
+                  transformImageUri={transformImageUri}
+                  escapeHtml={false}
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   )
 }
 

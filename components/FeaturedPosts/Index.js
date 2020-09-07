@@ -6,6 +6,8 @@ function FeaturedPosts(props) {
 
   const [postMain, ...postsText] = featuredPosts
 
+  const postsSecondary = postsText.splice(3, postsText.length - 3)
+
   const showMainPost = () => {
     return <FeaturedPost key={postMain.id} featuredPost={postMain} />
   }
@@ -16,6 +18,12 @@ function FeaturedPosts(props) {
     })
   }
 
+  const showSecFeaturedPosts = () => {
+    return postsSecondary.map((sPost) => (
+      <FeaturedPost key={sPost.id} featuredPost={sPost} />
+    ))
+  }
+
   return (
     <React.Fragment>
       <div className='featured-posts-wrapper'>
@@ -24,6 +32,7 @@ function FeaturedPosts(props) {
             <div className='featured-posts__left'>{showMainPost()}</div>
             <div className='featured-posts__right'>{showMainTextPosts()}</div>
           </div>
+          <div className='sec-featured-posts'>{showSecFeaturedPosts()}</div>
         </div>
       </div>
     </React.Fragment>

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import moment from 'moment'
+import { SOCIAL_DATA } from '../utils/constans'
 import { FaTwitter, FaFacebookF } from 'react-icons/fa'
 
 function Footer() {
@@ -10,7 +11,11 @@ function Footer() {
       <div className='container'>
         <div className='footer-content'>
           <div className='col'>
-            <img src='/img/logo_small.png' alt='EducIT Logo'></img>
+            <Link href='/'>
+              <a>
+                <img src='/img/logo_small.png' alt='EducIT Logo'></img>
+              </a>
+            </Link>
           </div>
           <div className='col'>
             <ul>
@@ -39,34 +44,28 @@ function Footer() {
           <div className='col'>
             <ul>
               <li>
-                <Link href='#'>
+                <Link href='/kapcsolat'>
                   <a>Kapcsolat</a>
                 </Link>
               </li>
               <li>
-                <Link href='#'>
+                <Link href='/adatvedelmi-tajekoztato'>
                   <a>Adatvédelmi tájékoztató</a>
                 </Link>
               </li>
               <li>
-                <Link href='#'>
-                  <a>Hírlevél</a>
-                </Link>
+                <a href='/hirlevel'>Hírlevél</a>
               </li>
             </ul>
           </div>
           <div className='col'>
-            <Link href='#'>
-              <a>
-                <FaTwitter />
-              </a>
-            </Link>
+            <a href={SOCIAL_DATA.twitter.url} target='_blank'>
+              <FaTwitter />
+            </a>
 
-            <Link href='#'>
-              <a>
-                <FaFacebookF />
-              </a>
-            </Link>
+            <a href={SOCIAL_DATA.facebook.url} target='_blank'>
+              <FaFacebookF />
+            </a>
           </div>
         </div>
       </div>

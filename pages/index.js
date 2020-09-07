@@ -17,7 +17,7 @@ function index({
       <FeaturedPosts featuredPosts={posts} />
       <CatSection
         posts={featuredJavasciptPosts}
-        catName='Javascript'
+        catName='JavaScript'
         catLink='/cat/javascript'
         catColor={categoriesData.javascript.color}
       />
@@ -74,7 +74,7 @@ export async function getServerSideProps(context) {
         featuredPhpPosts,
         featuredDesignPosts,
         featuredDotnetPosts
-      } // will be passed to the page component as props
+      }
     }
   } catch (error) {
     console.log(error)

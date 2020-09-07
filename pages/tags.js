@@ -1,5 +1,6 @@
 import Layout from '../components/Layout'
 import DisplayTag from '../components/Tags/Tags'
+import { NextSeo } from 'next-seo'
 
 function tags({ tags }) {
   let arrayOfTagsStartingChars = []
@@ -33,18 +34,21 @@ function tags({ tags }) {
   }
 
   return (
-    <Layout>
-      <div className='tags-page-wrapper page'>
-        <div className='container'>
-          <div className='tags-page'>
-            <div className='title'>
-              <h1>Címkék</h1>
+    <>
+      <NextSeo title='Címkék' />
+      <Layout>
+        <div className='tags-page-wrapper page'>
+          <div className='container'>
+            <div className='tags-page'>
+              <div className='title'>
+                <h1>Címkék</h1>
+              </div>
+              <div className='tags-abc'>{tagList}</div>
             </div>
-            <div className='tags-abc'>{tagList}</div>
           </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   )
 }
 
