@@ -35,12 +35,12 @@ export const SEO_DEF = {
   description: 'This is gonna be the description',
   openGraph: {
     type: 'website',
-    url: SOCIAL_DATA.website_url,
+    url: 'https://educit.hu',
     title: 'EducIT',
     description: 'This is gonna be the description',
     images: [
       {
-        url: SOCIAL_DATA.website_url + '/img/educit_def_share.jpg',
+        url: 'https://educit.hu/img/educit_def_share.jpg',
         width: 1200,
         height: 630,
         alt: 'EducIT Share Image'
