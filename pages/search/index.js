@@ -9,12 +9,35 @@ import { NextSeo } from 'next-seo'
 function search({ posts, query }) {
   let [searchVal, setSearchVal] = useState(query)
   let [resPosts, setResPosts] = useState(posts)
+  const [searchLoading, setSearchLoading] = useState(false)
 
-  let postsList = resPosts
-    ? resPosts.map((p) => {
+  let postsList =
+    resPosts.length > 0 ? (
+      resPosts.map((p) => {
         return <SinglePost key={p.id} post={p} />
       })
-    : null
+    ) : !searchLoading ? (
+      <div className='search-res'>
+        <h2>Nincs találat</h2>
+      </div>
+    ) : null
+
+  let loading = searchLoading ? (
+    <div class='sk-circle'>
+      <div class='sk-circle1 sk-child'></div>
+      <div class='sk-circle2 sk-child'></div>
+      <div class='sk-circle3 sk-child'></div>
+      <div class='sk-circle4 sk-child'></div>
+      <div class='sk-circle5 sk-child'></div>
+      <div class='sk-circle6 sk-child'></div>
+      <div class='sk-circle7 sk-child'></div>
+      <div class='sk-circle8 sk-child'></div>
+      <div class='sk-circle9 sk-child'></div>
+      <div class='sk-circle10 sk-child'></div>
+      <div class='sk-circle11 sk-child'></div>
+      <div class='sk-circle12 sk-child'></div>
+    </div>
+  ) : null
 
   const newSearch = async () => {
     const apiQuery = qs.stringify({
@@ -30,6 +53,9 @@ function search({ posts, query }) {
       }
     })
 
+    setResPosts([])
+    setSearchLoading(true)
+
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/posts?${apiQuery}`
     )
@@ -40,8 +66,9 @@ function search({ posts, query }) {
         s: searchVal
       })
 
+      setSearchLoading(false)
       setResPosts(resPosts)
-      history.pushState({}, null, `search?${newSearchVal}`)
+      history.replaceState({}, null, `search?${newSearchVal}`)
     }
   }
   return (
@@ -60,6 +87,11 @@ function search({ posts, query }) {
                   <input
                     type='text'
                     value={searchVal}
+                    onKeyUp={(e) => {
+                      if (e.key === 'Enter') {
+                        newSearch()
+                      }
+                    }}
                     onChange={(e) => {
                       setSearchVal(e.target.value)
                     }}
@@ -71,7 +103,10 @@ function search({ posts, query }) {
               </div>
               <div className='posts'>
                 <h2>Találat:</h2>
-                <div className='list'>{postsList}</div>
+                <div className='list'>
+                  {loading}
+                  {postsList}
+                </div>
               </div>
             </div>
           </div>
@@ -112,7 +147,6 @@ export async function getServerSideProps({ query }) {
 
       if (postsRes.length > 0) {
         posts = postsRes
-        console.log(posts.length)
         return {
           props: {
             posts,

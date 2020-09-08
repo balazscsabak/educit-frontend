@@ -5,9 +5,19 @@ import SearchModal from './SearchModal'
 
 function MainNav() {
   const [searchOpen, setSearchOpen] = useState(false)
-  const model = searchOpen ? (
-    <SearchModal closeModal={() => setSearchOpen(false)} />
+  const modal = searchOpen ? (
+    <SearchModal closeModal={() => toggleModal()} />
   ) : null
+
+  const toggleModal = function () {
+    if (searchOpen) {
+      document.body.style.overflow = 'unset'
+      setSearchOpen(false)
+    } else {
+      document.body.style.overflow = 'hidden'
+      setSearchOpen(true)
+    }
+  }
 
   return (
     <React.Fragment>
@@ -50,7 +60,7 @@ function MainNav() {
 
               <div className='nav__right'>
                 <ul>
-                  <li onClick={() => setSearchOpen(true)}>
+                  <li onClick={() => toggleModal()}>
                     <FaSearch />
                   </li>
                 </ul>
@@ -59,7 +69,7 @@ function MainNav() {
           </div>
         </div>
       </div>
-      {model}
+      {modal}
     </React.Fragment>
   )
 }

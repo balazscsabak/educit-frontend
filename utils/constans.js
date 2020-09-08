@@ -31,7 +31,22 @@ export const GA_TRACKING_ID = 'UA-177332986-1'
 // Default Next SEO data
 export const SEO_DEF = {
   titleTemplate: 'EducIT - %s',
-  title: 'Online Education'
+  title: 'Online Education',
+  description: 'This is gonna be the description',
+  openGraph: {
+    type: 'website',
+    url: SOCIAL_DATA.website_url,
+    title: 'EducIT',
+    description: 'This is gonna be the description',
+    images: [
+      {
+        url: SOCIAL_DATA.website_url + '/img/educit_def_share.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'EducIT Share Image'
+      }
+    ]
+  }
 }
 
 // Social Data
@@ -42,5 +57,6 @@ export const SOCIAL_DATA = {
   twitter: {
     url: 'https://twitter.com/balazscsabak'
   },
-  email: 'balazs.csabak@gmail.com'
+  email: 'balazs.csabak@gmail.com',
+  website_url: 'https://educit.hu'
 }

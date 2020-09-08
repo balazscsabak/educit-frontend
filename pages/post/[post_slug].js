@@ -17,7 +17,7 @@ function SinglePost({ post, url }) {
   const tags = post.tags
   const displayTags = tags.map((tag) => {
     return (
-      <Link href='/tag/[tag_slug]' as={`/tag/${tag.slug}`}>
+      <Link key={tag.id} href='/tag/[tag_slug]' as={`/tag/${tag.slug}`}>
         <a>
           <div key={tag.id}>{tag.tag_name}</div>
         </a>

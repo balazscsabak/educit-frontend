@@ -1,8 +1,7 @@
 GLOBAL
-    [ ] - search functionaliy
-        [ ] - loading status
-        [ ] - detect enter and search
-        [ ] - history.pushState back/farward compatibility
+    [X] - search functionaliy
+        [X] - loading status
+        [X] - detect enter and search
     [ ] - SEO metadatas
         [ ] - next seo
         [ ] - default og
@@ -12,6 +11,7 @@ GLOBAL
     [ ] - rename Javascript to JavaScript in API
     [ ] - recapcha
     [ ] ?? reqrite colours to get from API 
+    [ ] - educit description ...
 INDEX
     [ ] - legfrisebb, top  section 
 GYORSTALPALO
