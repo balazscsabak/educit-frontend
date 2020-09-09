@@ -6,6 +6,12 @@ export const getKeyByIdFromObj = (obj, val) => {
   })
 }
 
+// Shorten a string to less than maxLen characters without truncating words.
+export function shortenString(str, maxLen, separator = ' ') {
+  if (str.length <= maxLen) return str
+  return str.substr(0, str.lastIndexOf(separator, maxLen))
+}
+
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url) => {
   window.gtag('config', GA_TRACKING_ID, {

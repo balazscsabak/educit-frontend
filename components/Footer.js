@@ -50,7 +50,12 @@ function Footer() {
               </li>
               <li>
                 <Link href='/adatvedelmi-tajekoztato'>
-                  <a>Adatvédelmi tájékoztató</a>
+                  <a>Adatvédelmi Tájékoztató</a>
+                </Link>
+              </li>
+              <li>
+                <Link href='/cookie-kezeles'>
+                  <a>Cookie Kezelés</a>
                 </Link>
               </li>
               <li>

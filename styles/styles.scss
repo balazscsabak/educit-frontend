@@ -2,8 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Prata&family=Sarabun:ital,wght@0,100;0,300;0,400;0,500;0,700;1,400&display=swap');
 $font2: 'Prata', serif;
-// $font1: 'Sarabun', sans-serif;
-// $font1: 'Roboto Condensed', sans-serif;
 $font1: 'PT Sans', sans-serif;
 $mainColor: #52288c;
 html,
@@ -46,7 +44,7 @@ button:focus {
 }
 
 .page {
-  margin: 2rem auto 0;
+  margin: 2rem auto 3rem;
 
   .title {
     margin-bottom: 1.5rem;
@@ -551,6 +549,9 @@ button:focus {
 
 //  ############ PAGE
 .post-page-wrapper {
+  &.page {
+    margin-bottom: 3rem;
+  }
   .post-page {
     max-width: 700px;
     margin: auto;
@@ -633,6 +634,10 @@ button:focus {
       font-family: $font1;
       font-size: 18px;
 
+      img {
+        margin: auto;
+      }
+
       ul {
         margin-bottom: 2rem;
         margin-top: 2rem;
@@ -701,8 +706,99 @@ button:focus {
   }
 }
 
-.tags-page-wrapper {
-  .tags-page {
+.post-page-rel-posts-wrapper {
+  background-color: rgb(238, 238, 238);
+  color: rgb(15, 15, 15);
+  font-family: $font1;
+  padding: 1.3rem 0;
+  h2 {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: normal;
+    &::after {
+      content: '';
+      width: 110%;
+      position: relative;
+      left: 5px;
+      display: block;
+      height: 3px;
+      background-color: $mainColor;
+    }
+  }
+  .related-posts {
+    display: flex;
+    .posts {
+      margin-bottom: 0;
+      padding: 20px 30px 0;
+      width: 100%;
+      .post {
+        margin-bottom: 1rem;
+        a {
+          color: #000;
+          text-decoration: none;
+        }
+        .title {
+          h1 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            position: relative;
+            &::before {
+              position: absolute;
+              left: -15px;
+              top: 13px;
+              content: '';
+              display: inline-block;
+              height: 5px;
+              width: 5px;
+              background-color: $mainColor;
+            }
+          }
+        }
+        .body {
+          display: flex;
+
+          .cat {
+            padding-top: 10px;
+
+            span {
+              white-space: nowrap;
+              display: inline-block;
+              padding: 2px 7px;
+              border-radius: 3px;
+            }
+          }
+          .exc {
+            padding-top: 10px;
+            padding-left: 30px;
+            span {
+              font-size: 1rem;
+            }
+            .read-more {
+              font-style: italic;
+              font-size: 1.2rem;
+              margin-top: 10px;
+              color: $mainColor;
+            }
+          }
+        }
+      }
+    }
+    .adv {
+      width: 300px;
+      height: 250px;
+      padding: 0 15px;
+      background-color: rgb(92, 92, 92);
+    }
+  }
+}
+
+.tags-page-wrapper,
+.gyorstalpalo-page-wrapper {
+  .tags-page,
+  .gyorstalpalo-page {
+    .title {
+      margin-bottom: 2.5rem;
+    }
     .tags-abc {
       .tag-box {
         margin-bottom: 3rem;
@@ -724,6 +820,7 @@ button:focus {
         .tags {
           display: flex;
           padding: 0 5px;
+          flex-wrap: wrap;
           a {
             text-decoration: none;
             .tag {
@@ -939,7 +1036,6 @@ button:focus {
   font-family: $font1;
   background-color: #131313;
   color: #9c9c9c;
-  margin-top: 3rem;
   a {
     color: #9c9c9c;
     text-decoration: none;
@@ -1303,6 +1399,96 @@ button:focus {
   }
 }
 
+.adatvedelmi-page-wrapper {
+  .adatvedelmi-page {
+    .page-content {
+      * + * {
+        margin-top: 1.4em;
+      }
+    }
+  }
+}
+
+.single-gyt-page-wrapper {
+  .single-gyt {
+    max-width: 700px;
+    margin: auto;
+    .single {
+      line-height: 1.6;
+      letter-spacing: 1.1px;
+      font-family: $font1;
+      font-size: 18px;
+
+      img {
+        margin: auto;
+      }
+      ul {
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+        margin-left: 2rem;
+      }
+      h1,
+      h2 {
+        font-family: $font2;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      h2 {
+        font-size: 1.3rem;
+      }
+      h3 {
+        font-size: 1.2rem;
+      }
+      h4 {
+        font-size: 1.1rem;
+      }
+
+      h1 + h2 {
+        margin-top: 1.5rem;
+      }
+      h1 + h3,
+      h2 + h3 {
+        margin-top: 0.6rem;
+      }
+      h1 + h4,
+      h2 + h4 {
+        margin-top: 0.6rem;
+      }
+      p + p {
+        margin-top: 2rem;
+      }
+      h1 + p,
+      h2 + p {
+        margin-top: 1.5rem;
+      }
+      h3 + p,
+      h4 + p {
+        margin-top: 1rem;
+      }
+      p + h1,
+      p + h2 {
+        margin-top: 3rem;
+      }
+      p + h3,
+      p + h4 {
+        margin-top: 2rem;
+      }
+      h3 + h4,
+      h4 + h5 {
+        margin-top: 0.7rem;
+      }
+      h5 + p {
+        margin-top: 0.7rem;
+      }
+      .gist {
+        max-width: 100%;
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+      }
+    }
+  }
+}
 // LOADER
 
 .sk-circle {

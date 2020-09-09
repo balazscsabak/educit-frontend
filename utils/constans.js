@@ -22,6 +22,12 @@ export const categoriesData = {
     color: '#7377ad',
     displayName: 'PHP',
     fontColor: '#ffffffe3'
+  },
+  webdev: {
+    id: '5f58d7fb15a59a0017e892d1',
+    color: '#e16a6a',
+    displayName: 'Web dev',
+    fontColor: '#ffffffde'
   }
 }
 

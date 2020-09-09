@@ -3,7 +3,7 @@ import Link from 'next/link'
 import SinglePost from '../../../components/Posts/SinglePost'
 import Pagination from '../../../components/Pagination'
 import { NextSeo } from 'next-seo'
-import FeaturedForCat from '../../../components/Categories/FeaturedForCat'
+import FeaturedForCat from '../../../components/FeaturedPosts/FeaturedForCat'
 
 function singleCategory({ cat, posts, count }) {
   const { featuredPosts } = cat

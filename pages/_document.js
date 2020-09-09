@@ -6,8 +6,6 @@ import { GA_TRACKING_ID } from '../utils/constans'
 
 export default class CustomDocument extends Document {
   static async getInitialProps(ctx) {
-    const originalRenderPage = ctx.renderPage
-
     const initialProps = await Document.getInitialProps(ctx)
 
     return {
@@ -16,21 +14,16 @@ export default class CustomDocument extends Document {
   }
 
   render() {
-    const { isProduction } = this.props
-
     return (
       <html lang='hu'>
-        <meta charSet='UTF-8' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
         <Head>
-          <Fragment>
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
@@ -39,9 +32,8 @@ export default class CustomDocument extends Document {
                       page_path: window.location.pathname,
                     });
                   `
-              }}
-            />
-          </Fragment>
+            }}
+          />
         </Head>
         <body>
           <Main />

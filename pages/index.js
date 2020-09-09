@@ -8,37 +8,46 @@ function index({
   featuredJavasciptPosts,
   featuredPhpPosts,
   featuredDesignPosts,
-  featuredDotnetPosts
+  featuredDotnetPosts,
+  featuredWebdevPosts
 }) {
   let { posts } = featuredPosts
 
   return (
     <Layout>
-      <FeaturedPosts featuredPosts={posts} />
-      <CatSection
-        posts={featuredJavasciptPosts}
-        catName='JavaScript'
-        catLink='/cat/javascript'
-        catColor={categoriesData.javascript.color}
-      />
-      <CatSection
-        posts={featuredDesignPosts}
-        catName='Design'
-        catLink='/cat/design'
-        catColor={categoriesData.design.color}
-      />
-      <CatSection
-        posts={featuredPhpPosts}
-        catName='PHP'
-        catLink='/cat/php'
-        catColor={categoriesData.php.color}
-      />
-      <CatSection
-        posts={featuredDotnetPosts}
-        catName='.NET'
-        catLink='/cat/dotnet'
-        catColor={categoriesData.dotnet.color}
-      />
+      <div className='page'>
+        <FeaturedPosts featuredPosts={posts} />
+        <CatSection
+          posts={featuredWebdevPosts}
+          catName='Web dev'
+          catLink='/cat/webdev'
+          catColor={categoriesData.webdev.color}
+        />
+        <CatSection
+          posts={featuredJavasciptPosts}
+          catName='JavaScript'
+          catLink='/cat/javascript'
+          catColor={categoriesData.javascript.color}
+        />
+        <CatSection
+          posts={featuredDesignPosts}
+          catName='Design'
+          catLink='/cat/design'
+          catColor={categoriesData.design.color}
+        />
+        <CatSection
+          posts={featuredPhpPosts}
+          catName='PHP'
+          catLink='/cat/php'
+          catColor={categoriesData.php.color}
+        />
+        <CatSection
+          posts={featuredDotnetPosts}
+          catName='.NET'
+          catLink='/cat/dotnet'
+          catColor={categoriesData.dotnet.color}
+        />
+      </div>
     </Layout>
   )
 }
@@ -47,6 +56,9 @@ export async function getServerSideProps(context) {
   try {
     let featuredPostsRes = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/feauted-posts`
+    )
+    let featuredWebdevPostsRes = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/posts?category.id=${categoriesData.webdev.id}&_limit=5&_sort=createdAt:desc`
     )
     let featuredJavasciptPostsRes = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/posts?category.id=${categoriesData.javascript.id}&_limit=5&_sort=createdAt:desc`
@@ -62,6 +74,7 @@ export async function getServerSideProps(context) {
     )
 
     let featuredPosts = await featuredPostsRes.json()
+    let featuredWebdevPosts = await featuredWebdevPostsRes.json()
     let featuredJavasciptPosts = await featuredJavasciptPostsRes.json()
     let featuredPhpPosts = await featuredPhpPostsRes.json()
     let featuredDesignPosts = await featuredDesignPostsRes.json()
@@ -70,6 +83,7 @@ export async function getServerSideProps(context) {
     return {
       props: {
         featuredPosts,
+        featuredWebdevPosts,
         featuredJavasciptPosts,
         featuredPhpPosts,
         featuredDesignPosts,

@@ -1,31 +1,21 @@
 GLOBAL
-    [X] - search functionaliy
-        [X] - loading status
-        [X] - detect enter and search
-    [ ] - SEO metadatas
-        [ ] - next seo
-        [ ] - default og
-        [ ] - og
     [ ] - cikkek rendezése növekvő, legolvasottabb 
     [ ] - mobile freindly
-    [ ] - rename Javascript to JavaScript in API
     [ ] - recapcha
     [ ] ?? reqrite colours to get from API 
     [ ] - educit description ...
 INDEX
     [ ] - legfrisebb, top  section 
 GYORSTALPALO
-    [ ] - back
-    [ ] - frontend
+    [x] - back
+    [x] - frontend
 HÍRLEVÉL
     [ ] - edit text
 KAPCSOLAT PAGE
     [ ] - show val errors 
 COOKIE  
-    [ ] - create it
+    [ ] - edit text
 ADATVÉDELMI PAGE 
-    [ ] - create it
+    [ ] - edit text
 ADV
     [ ] - create layouts
-posts
-    [ ] - featutred post section
