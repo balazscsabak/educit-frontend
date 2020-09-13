@@ -13,6 +13,16 @@
         width: 100%;
         .post {
           width: 100%;
+          &::after {
+            content: ' ';
+            position: relative;
+            display: block;
+            width: 95%;
+            margin: 20px auto;
+            background-color: #e6e6e6;
+            height: 1px;
+            border-radius: 1px;
+          }
           .post__header {
             margin-bottom: 0.3rem;
             .cat {
@@ -26,7 +36,6 @@
       }
       .featured-posts__right {
         width: 100%;
-        margin-top: 2rem;
         a {
           .post {
             h1 {
@@ -102,56 +111,367 @@
       }
     }
   }
+  .post-page-rel-posts-wrapper {
+    h2 {
+      margin-left: 1rem;
+      font-size: 1.7rem;
+    }
+    .related-posts {
+      flex-direction: column;
+
+      .posts {
+        .post {
+          margin-bottom: 2rem;
+          .body {
+            flex-direction: column;
+            .exc {
+              padding-top: 10px;
+              padding-left: 0;
+              span {
+                font-size: 1.2rem;
+              }
+            }
+          }
+        }
+      }
+    }
+    .adv {
+      margin: auto;
+    }
+  }
+  .page {
+    .posts {
+      .post-wrapper {
+        a {
+          .post {
+            .post__title {
+              width: 100%;
+              margin-bottom: 1rem;
+            }
+            .post__cat {
+              width: 50%;
+              text-align: left;
+            }
+            .post__date {
+              width: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .categories-page-wrapper {
+    .categories-page {
+      .categories {
+        .category {
+          flex: 100% 1;
+        }
+      }
+    }
+  }
+  .category-page-wrapper {
+    .category-page {
+      .featured-posts {
+        .posts {
+          flex-wrap: wrap;
+          a {
+            width: 95%;
+            margin: auto;
+            &:first-child {
+              margin-bottom: 4rem;
+            }
+            .post {
+              .post__title {
+                bottom: -20px;
+                h2 {
+                  font-size: 1.1rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .search-page-wrapper {
+    .search-page {
+      .input {
+        width: 100%;
+        .input__text {
+          width: 100%;
+          input {
+            width: 100%;
+          }
+        }
+      }
+      .posts {
+        margin-top: 2rem;
+        .list {
+          .search-res {
+            h2 {
+              margin-top: 50px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .sk-circle {
+    margin: 50px auto;
+  }
+  .kapcsolat-page-wrapper {
+    .kapcsolat-page {
+      .kapcsolat {
+        flex-wrap: wrap;
+        .left {
+          width: 100%;
+          margin-bottom: 2rem;
+          .data {
+            h2 {
+              font-size: 1.8rem;
+            }
+            p {
+              font-size: 1.4rem;
+            }
+            .social {
+              margin-top: 2rem;
+              span {
+                svg {
+                  font-size: 1.7rem;
+                }
+              }
+            }
+          }
+        }
+        .right {
+          width: 100%;
+          margin: auto;
+        }
+      }
+    }
+  }
 }
-@media only screen and (max-width: 600px) {
+@media screen and (min-width: 601px) and (max-width: 768px) {
   .container {
     width: 100%;
     padding: 0 16px;
   }
   .featured-posts-wrapper {
-    margin-top: 2rem;
-    margin-bottom: 3rem;
     .featured-posts {
       flex-direction: column;
-
       .featured-posts__left {
         width: 100%;
         .post {
-          width: 100%;
-          .post__header {
-            margin-bottom: 0.3rem;
-            .cat {
-              font-size: 15px;
+          margin: auto;
+          a {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            width: 100%;
+            .post__header {
+              width: calc(45% - 20px);
+
+              position: absolute;
+              left: calc(55% + 15px);
             }
-          }
-          h1 {
-            font-size: 1.4rem;
+
+            .post__bg {
+              width: 55%;
+            }
+            h1 {
+              width: 45%;
+              font-size: 1.6rem;
+              margin-top: 3rem;
+              padding-left: 15px;
+            }
           }
         }
       }
       .featured-posts__right {
+        flex-direction: row;
         width: 100%;
         margin-top: 2rem;
         a {
+          width: 33.3333%;
           .post {
+            padding: 8px;
             h1 {
-              font-size: 1.4rem;
+              font-size: 1.3rem;
+            }
+            // .featured-posts__right a:not(:last-child)::after
+          }
+          .post__meta {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+          }
+          &:not(:last-child) {
+            &::after {
+              display: none;
             }
           }
         }
       }
     }
     .sec-featured-posts {
-      flex-direction: column;
-      margin-top: 3rem;
+      margin-top: 2.7rem;
       .post {
-        width: 100%;
+        a {
+          h1 {
+            font-size: 1.1rem;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+  }
+  .cat-section-wrapper {
+    .cat-section {
+      .cat-section__header {
+        h1 {
+          font-size: 1.4rem;
+        }
+      }
+      .cat-section__postlist {
         margin-bottom: 2rem;
+        ul {
+          a {
+            li {
+              font-size: 19px;
+            }
+          }
+        }
+      }
+      .more-btn {
+        padding: 10px;
+        width: 150px;
+        margin-right: 10px;
+        font-size: 1.1rem;
+      }
+    }
+  }
+  .kapcsolat-page-wrapper {
+    .kapcsolat-page {
+      .kapcsolat {
+        flex-wrap: wrap;
+        .left {
+          width: 100%;
+          margin-bottom: 2rem;
+          .data {
+            h2 {
+              font-size: 2rem;
+            }
+            p {
+              font-size: 1.5rem;
+            }
+            .social {
+              margin-top: 2rem;
+              span {
+                svg {
+                  font-size: 1.7rem;
+                }
+              }
+            }
+          }
+        }
+        .right {
+          width: 90%;
+          margin: auto;
+        }
       }
     }
   }
 }
-@media only screen and (min-width: 768px) {
+@media screen and (min-width: 769px) and (max-width: 970px) {
+  .container {
+    width: 100%;
+    padding: 0 16px;
+  }
+  .featured-posts-wrapper {
+    .featured-posts {
+      .featured-posts__left {
+        .post {
+          margin-right: 20px;
+          a {
+            .post__header {
+              font-size: 0.9rem;
+            }
+
+            .post__bg {
+            }
+            h1 {
+              font-size: 1.4rem;
+            }
+          }
+        }
+      }
+      .featured-posts__right {
+        a {
+          .post {
+            h1 {
+              font-size: 1.2rem;
+              margin-bottom: 0.3rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  .cat-section-wrapper {
+    .cat-section {
+      a {
+        .more-btn {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
 }
-@media only screen and (min-width: 992px) {
+
+@media screen and (min-width: 971px) and (max-width: 1070px) {
+  .container {
+    width: 100%;
+    padding: 0 16px;
+  }
+  .featured-posts-wrapper {
+    .featured-posts {
+      .featured-posts__left {
+        .post {
+          margin-right: 20px;
+          a {
+            .post__header {
+              font-size: 0.9rem;
+            }
+
+            h1 {
+              font-size: 1.7rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  .cat-section-wrapper {
+    .cat-section {
+      a {
+        .more-btn {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 1071px) and (max-width: 1150px) {
+  .container {
+    width: 100%;
+    padding: 0 16px;
+  }
+  .cat-section-wrapper {
+    .cat-section {
+      a {
+        .more-btn {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
 }
