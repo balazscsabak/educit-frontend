@@ -2,8 +2,10 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import SearchModal from './SearchModal'
+import { BiMenuAltLeft } from 'react-icons/bi'
 
 function MainNav() {
+  const [navOpen, setNavOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const modal = searchOpen ? (
     <SearchModal closeModal={() => toggleModal()} />
@@ -24,7 +26,10 @@ function MainNav() {
       <div className='main-nav-wrapper'>
         <div className='container'>
           <div className='main-nav'>
-            <div className='nav'>
+            <div className={`nav ${navOpen ? 'open' : ''}`}>
+              <div className='toggler'>
+                <BiMenuAltLeft onClick={() => setNavOpen(!navOpen)} />
+              </div>
               <div className='nav__left'>
                 <ul>
                   <Link href='/'>

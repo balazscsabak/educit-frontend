@@ -1,7 +1,75 @@
+$font2: 'Prata', serif;
+$font1: 'PT Sans', sans-serif;
+$mainColor: #52288c;
+
 @media only screen and (max-width: 600px) {
   .container {
     width: 100%;
     padding: 0 16px;
+  }
+  .main-nav-wrapper {
+    .main-nav {
+      .nav {
+        flex-direction: column;
+
+        .toggler {
+          display: block;
+          svg {
+            cursor: pointer;
+            font-size: 2rem;
+            color: $mainColor;
+          }
+        }
+        .nav__right {
+          justify-content: flex-end;
+          ul {
+            li {
+              svg {
+                margin-top: -45px;
+                transition: all 0.1s linear;
+              }
+            }
+          }
+        }
+        .nav__left {
+          max-height: 0;
+          opacity: 0;
+          overflow: hidden;
+          transition: all 0.1s linear;
+          ul {
+            display: flex;
+            flex-direction: column;
+            a {
+              margin-bottom: 1rem;
+              li {
+                font-size: 1.2rem;
+              }
+            }
+          }
+        }
+        &.open {
+          .toggler {
+            svg {
+              color: rgb(160, 95, 157);
+            }
+          }
+          .nav__left {
+            opacity: 1;
+            background-color: #f7f7f742;
+            max-height: 700px;
+          }
+          .nav__right {
+            ul {
+              li {
+                svg {
+                  margin-top: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
   .featured-posts-wrapper {
     margin-top: 2rem;

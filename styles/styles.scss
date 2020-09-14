@@ -271,6 +271,9 @@ button:focus {
           }
         }
       }
+      .toggler {
+        display: none;
+      }
     }
   }
 }
@@ -937,6 +940,7 @@ button:focus {
     .subs-text {
       text-align: center;
       margin-bottom: 2rem;
+      line-height: 1.7;
     }
     .subs-form-wrapper {
       .subs-form {
