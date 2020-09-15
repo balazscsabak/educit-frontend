@@ -59,7 +59,7 @@ export async function getServerSideProps({ res, params }) {
         const count = await countRes.json()
         const skipLimit = (paged - 1) * process.env.NEXT_PUBLIC_POSTS_PER_PAGE
         const postsRes = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/posts?_limit=${process.env.NEXT_PUBLIC_POSTS_PER_PAGE}&_sort=createdAt:desc&_start=${skipLimit}`
+          `${process.env.NEXT_PUBLIC_API_URL}/posts?_limit=${process.env.NEXT_PUBLIC_POSTS_PER_PAGE}&_sort=postedAt:desc&_start=${skipLimit}`
         )
 
         if (postsRes.status === 200) {

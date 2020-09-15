@@ -19,7 +19,7 @@ function SinglePost({ post }) {
               </span>
             </div>
             <div className='post__date'>
-              {moment(post.createdAt).format('YYYY.MM.DD')}
+              {moment(post.postedAt).format('YYYY.MM.DD')}
             </div>
           </div>
         </a>

@@ -1,6 +1,5 @@
 GLOBAL
     [ ] - cikkek rendezése növekvő, legolvasottabb 
-    [ ] - mobile freindly
     [ ] - recapcha
     [ ] ?? reqrite colours to get from API 
     [ ] - educit description ...

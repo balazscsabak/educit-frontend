@@ -6,7 +6,7 @@ import { getKeyByIdFromObj } from '../../utils/functions'
 function FeaturedPostsText(props) {
   try {
     const post = props.featuredPost
-    const date = moment(post.createdAt).format('YYYY.MM.DD')
+    const date = moment(post.postedAt).format('YYYY.MM.DD')
     const catId = post.category
     const catName = getKeyByIdFromObj(categoriesData, catId)
     const diplayCatName = categoriesData[catName].displayName || 'test'

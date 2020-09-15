@@ -54,7 +54,7 @@ export async function getServerSideProps({ res }) {
     if (countRes.status == 200) {
       const count = await countRes.json()
       const postsRes = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/posts?_limit=${process.env.NEXT_PUBLIC_POSTS_PER_PAGE}&_sort=createdAt:desc`
+        `${process.env.NEXT_PUBLIC_API_URL}/posts?_limit=${process.env.NEXT_PUBLIC_POSTS_PER_PAGE}&_sort=postedAt:desc`
       )
 
       if (postsRes.status === 200) {

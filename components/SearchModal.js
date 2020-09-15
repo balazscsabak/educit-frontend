@@ -2,7 +2,6 @@ import { FaSearch } from 'react-icons/fa'
 import { AiOutlineClose } from 'react-icons/ai'
 
 function SearchModal(props) {
-  console.log(props)
   return (
     <div
       className='searchModal'

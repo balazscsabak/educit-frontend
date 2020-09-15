@@ -17,7 +17,7 @@ import { SEO_DEF } from '../../utils/constans'
 function SinglePost({ post, url }) {
   const [relatedPosts, setrelatedPosts] = useState([])
   const createdBy = post.created_by.username
-  const createdAt = moment(post.createdAt).format('YYYY.MM.DD. - h:mm')
+  const createdAt = moment(post.postedAt).format('YYYY.MM.DD. - h:mm')
   const excerpt = post.excerpt
   const tags = post.tags
   const content = post.content
@@ -92,7 +92,6 @@ function SinglePost({ post, url }) {
   }
 
   useEffect(() => {
-    console.log('effect')
     getRelatedPosts()
   }, [postId])
 
@@ -170,7 +169,7 @@ export async function getServerSideProps(ctx) {
   try {
     const slug = ctx.params.post_slug
     const postRes = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/posts?url_slug=${slug}&_limit=1&_sort=createdAt:desc`
+      `${process.env.NEXT_PUBLIC_API_URL}/posts?url_slug=${slug}&_limit=1&_sort=postedAt:desc`
     )
 
     const post = await postRes.json()

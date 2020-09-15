@@ -79,7 +79,7 @@ export async function getServerSideProps({ params, res }) {
     }
 
     const postsRes = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/posts?category.slug=${catSlug}&_limit=${process.env.NEXT_PUBLIC_POSTS_PER_PAGE}&_start=${skipLimit}`
+      `${process.env.NEXT_PUBLIC_API_URL}/posts?category.slug=${catSlug}&_limit=${process.env.NEXT_PUBLIC_POSTS_PER_PAGE}&_start=${skipLimit}&_sort=postedAt:desc`
     )
 
     if (postsRes.status != 200) {

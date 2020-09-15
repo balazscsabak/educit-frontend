@@ -6,7 +6,7 @@ import { getKeyByIdFromObj } from '../../utils/functions'
 function FeaturedPost({ featuredPost }) {
   const post = featuredPost
   const imgUrl = post.image ? post.image.url : 'no-image'
-  const date = moment(post.createdAt).format('YYYY.MM.DD')
+  const date = moment(post.postedAt).format('YYYY.MM.DD')
   const bgUrl = process.env.NEXT_PUBLIC_API_URL + imgUrl
   const category = getKeyByIdFromObj(categoriesData, post.category)
   const displayCategory = categoriesData[category].displayName

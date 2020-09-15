@@ -28,7 +28,7 @@ function singleCategory({ cat, posts, count }) {
                 <h2>Kiemelt cikkek</h2>
                 <div className='posts'>
                   {featuredPosts.map((fp) => (
-                    <FeaturedForCat post={fp} />
+                    <FeaturedForCat key={fp.id} post={fp} />
                   ))}
                 </div>
               </div>
@@ -81,7 +81,7 @@ export async function getServerSideProps({ params, res }) {
     }
 
     const postsRes = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/posts?category.slug=${catSlug}&_limit=${process.env.NEXT_PUBLIC_POSTS_PER_PAGE}`
+      `${process.env.NEXT_PUBLIC_API_URL}/posts?category.slug=${catSlug}&_limit=${process.env.NEXT_PUBLIC_POSTS_PER_PAGE}&_sort=postedAt:desc`
     )
 
     if (postsRes.status != 200) {
