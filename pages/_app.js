@@ -1,6 +1,8 @@
 import Router from 'next/router'
 import '../styles/styles.scss'
 import '../styles/mobile.scss'
+import 'highlight.js/styles/atom-one-light.css'
+
 import * as gtag from '../utils/functions'
 import { DefaultSeo } from 'next-seo'
 import { SEO_DEF } from '../utils/constans'

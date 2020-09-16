@@ -13,6 +13,8 @@ import {
 import Link from 'next/link'
 import RelatedPost from '../../components/FeaturedPosts/RelatedPost'
 import { SEO_DEF } from '../../utils/constans'
+import hljs from 'highlight.js/lib/core'
+import javascript from 'highlight.js/lib/languages/javascript'
 
 function SinglePost({ post, url }) {
   const [relatedPosts, setrelatedPosts] = useState([])
@@ -92,6 +94,11 @@ function SinglePost({ post, url }) {
   }
 
   useEffect(() => {
+    hljs.registerLanguage('javascript', javascript)
+    document.querySelectorAll('.hljs--block').forEach((item) => {
+      console.log(item)
+      hljs.highlightBlock(item)
+    })
     getRelatedPosts()
   }, [postId])
 

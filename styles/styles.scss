@@ -21,6 +21,11 @@ body {
   max-width: 1070px;
   margin: auto;
 }
+code.hljs {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
 .main-wrapper {
   height: 100vh;
   display: flex;
