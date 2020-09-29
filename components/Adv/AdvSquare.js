@@ -18,7 +18,6 @@ function AdvSquare() {
 
   return (
     <div className="adv-box adv-square">
-      {console.log(googleScript)}
       <div dangerouslySetInnerHTML={{ __html: googleScript }}></div>
     </div>
   )

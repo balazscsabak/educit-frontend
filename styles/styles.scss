@@ -23,8 +23,9 @@ body {
 }
 code.hljs {
   margin-top: 2rem;
+  padding: 1rem 1.5rem;
   margin-bottom: 1rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 .main-wrapper {
   height: 100vh;
@@ -1665,3 +1666,7 @@ button:focus {
 //   <div class="sk-circle11 sk-child"></div>
 //   <div class="sk-circle12 sk-child"></div>
 // </div>
+
+.adv-post {
+  margin: 3rem 0;
+}
