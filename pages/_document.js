@@ -26,11 +26,7 @@ export default class CustomDocument extends Document {
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
           />
-          <script
-            data-ad-client="ca-pub-4026486048166934"
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-          ></script>
+
           <script
             dangerouslySetInnerHTML={{
               __html: `

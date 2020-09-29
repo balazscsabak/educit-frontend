@@ -8,13 +8,14 @@ import {
   FacebookShareButton,
   TwitterShareButton,
   FacebookIcon,
-  TwitterIcon
+  TwitterIcon,
 } from 'react-share'
 import Link from 'next/link'
 import RelatedPost from '../../components/FeaturedPosts/RelatedPost'
 import { SEO_DEF } from '../../utils/constans'
 import hljs from 'highlight.js/lib/core'
 import javascript from 'highlight.js/lib/languages/javascript'
+import AdvSquare from '../../components/Adv/AdvSquare'
 
 function SinglePost({ post, url }) {
   const [relatedPosts, setrelatedPosts] = useState([])
@@ -34,16 +35,16 @@ function SinglePost({ post, url }) {
             url: process.env.NEXT_PUBLIC_API_URL + post.image.url,
             alt: post.image.alternativeText,
             width: post.image.width,
-            height: post.image.height
-          }
+            height: post.image.height,
+          },
         ],
-        description: post.description
+        description: post.description,
       }
     : SEO_DEF.openGraph
 
   const displayTags = tags.map((tag) => {
     return (
-      <Link key={tag.id} href='/tag/[tag_slug]' as={`/tag/${tag.slug}`}>
+      <Link key={tag.id} href="/tag/[tag_slug]" as={`/tag/${tag.slug}`}>
         <a>
           <div key={tag.id}>{tag.tag_name}</div>
         </a>
@@ -67,17 +68,17 @@ function SinglePost({ post, url }) {
       tags.map((t) => {
         return [
           {
-            'tags.slug': t.slug
-          }
+            'tags.slug': t.slug,
+          },
         ]
       })
 
     if (tagsArray.length > 0) {
       const query = qs.stringify({
         _where: {
-          _or: [...tagsArray]
+          _or: [...tagsArray],
         },
-        _limit: 3
+        _limit: 3,
       })
 
       const res = await fetch(
@@ -111,44 +112,44 @@ function SinglePost({ post, url }) {
       />
 
       <Layout>
-        <div className='post-page-wrapper page'>
-          <div className='container'>
-            <div className='post-page'>
-              <div className='header'>
-                <div className='title'>
+        <div className="post-page-wrapper page">
+          <div className="container">
+            <div className="post-page">
+              <div className="header">
+                <div className="title">
                   <h1>{post.title}</h1>
                 </div>
-                <div className='excerpt'>{excerpt}</div>
-                <div className='meta'>
-                  <div className='author'>Írta: {createdBy}</div>
-                  <div className='date'>Kelt: {createdAt}</div>
-                  <div className='tags'>
+                <div className="excerpt">{excerpt}</div>
+                <div className="meta">
+                  <div className="author">Írta: {createdBy}</div>
+                  <div className="date">Kelt: {createdAt}</div>
+                  <div className="tags">
                     <p>Címkék:</p>
-                    <div className='tags-box'>{displayTags}</div>
+                    <div className="tags-box">{displayTags}</div>
                   </div>
                 </div>
               </div>
-              <div className='share'>
+              <div className="share">
                 <FacebookShareButton
                   url={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${url}`}
-                  hashtag='#EducIT'
+                  hashtag="#EducIT"
                   resetButtonStyle={false}
-                  className='shareFbBtn'
+                  className="shareFbBtn"
                 >
-                  <FacebookIcon size='30' />
+                  <FacebookIcon size="30" />
                   Megosztás
                 </FacebookShareButton>
 
                 <TwitterShareButton
                   url={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${url}`}
                   resetButtonStyle={false}
-                  className='shareTwitterBtn'
+                  className="shareTwitterBtn"
                 >
-                  <TwitterIcon size='30' />
+                  <TwitterIcon size="30" />
                   Tweet
                 </TwitterShareButton>
               </div>
-              <div className='content'>
+              <div className="content">
                 <ReactMarkdown
                   source={content}
                   transformImageUri={transformImageUri}
@@ -158,12 +159,14 @@ function SinglePost({ post, url }) {
             </div>
           </div>
         </div>
-        <div className='post-page-rel-posts-wrapper'>
-          <div className='container'>
+        <div className="post-page-rel-posts-wrapper">
+          <div className="container">
             <h2>Kapcsolódó cikkek</h2>
-            <div className='related-posts'>
-              <div className='posts'>{displayRelatedPosts}</div>
-              <div className='adv'></div>
+            <div className="related-posts">
+              <div className="posts">{displayRelatedPosts}</div>
+              <div className="adv">
+                <AdvSquare />
+              </div>
             </div>
           </div>
         </div>
@@ -182,11 +185,11 @@ export async function getServerSideProps(ctx) {
     const post = await postRes.json()
 
     return {
-      props: { post: post[0], url: slug }
+      props: { post: post[0], url: slug },
     }
   } catch (err) {
     return {
-      props: {}
+      props: {},
     }
   }
 }
