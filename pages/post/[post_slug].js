@@ -16,6 +16,7 @@ import { SEO_DEF } from '../../utils/constans'
 import hljs from 'highlight.js/lib/core'
 import javascript from 'highlight.js/lib/languages/javascript'
 import AdvSquare from '../../components/Adv/AdvSquare'
+import shortid from 'shortid'
 
 function SinglePost({ post, url }) {
   const [relatedPosts, setrelatedPosts] = useState([])
@@ -102,6 +103,54 @@ function SinglePost({ post, url }) {
     })
     getRelatedPosts()
   }, [postId])
+
+  useEffect(() => {
+    let gists = document.querySelectorAll('.post-gist-box')
+    console.log(gists)
+
+    gists.forEach((g) => {
+      let gistScripts = g.querySelector('script')
+
+      const randId = shortid.generate()
+      // Create an iframe, append it to this document where specified
+      var gistFrame = document.createElement('iframe')
+      gistFrame.setAttribute('width', '100%')
+      gistFrame.id = randId
+
+      //remove old gist
+      g.innerHTML = ''
+      g.appendChild(gistFrame)
+
+      // Create the iframe's document
+      var gistFrameHTML =
+        '<html><body style="margin: 0;" onload="parent.calcGistParentHeight(document.body.scrollHeight, `' +
+        randId +
+        '`)"><scr' +
+        'ipt type="text/javascript" src="' +
+        gistScripts.src +
+        '"></sc' +
+        'ript></body></html>'
+
+      window.calcGistParentHeight = function (x, id) {
+        const frame = document.getElementById(id)
+        frame.style.height = parseInt(x) + 20 + 'px'
+      }
+
+      // Set iframe's document with a trigger for this document to adjust the height
+      var gistFrameDoc = gistFrame.document
+
+      if (gistFrame.contentDocument) {
+        gistFrameDoc = gistFrame.contentDocument
+      } else if (gistFrame.contentWindow) {
+        gistFrameDoc = gistFrame.contentWindow.document
+      }
+
+      gistFrameDoc.open()
+      gistFrameDoc.writeln(gistFrameHTML)
+      gistFrameDoc.close()
+      // referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling)
+    })
+  }, [])
 
   return (
     <>
